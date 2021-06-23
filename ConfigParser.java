@@ -79,7 +79,7 @@ public class ConfigParser extends HashMap<String, String> {
 	 * Method to get the file that is being used by the ConfigParser to save and
 	 * read information
 	 * 
-	 * @returns File that is currently selected by the ConfigParser
+	 * @return File that is currently selected by the ConfigParser
 	 */
 	public File getConfigFile() {
 		return this.configFile;
@@ -89,7 +89,7 @@ public class ConfigParser extends HashMap<String, String> {
 	 * Method to get the file that is being used by the ConfigParser to save and
 	 * read information
 	 * 
-	 * @returns File that is currently selected by the ConfigParser
+	 * @return File that is currently selected by the ConfigParser
 	 */
 	public String getFilePath() {
 		return this.configFile.getPath();
