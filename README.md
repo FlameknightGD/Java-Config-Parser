@@ -20,11 +20,11 @@ public class ConfigParserTest {
     this.configFile = new File("config/config.cfg"); //Initialize Config File
     this.configParser = new ConfigParser(this.configFile); //Initialize Config Parser
     
-    this.configParser.put("exampleValue01","14");
-    this.configParser.put("exampleValue02","23");
+    this.configParser.put("exampleValue01","14"); //Puts Key And Value Into ConfigParser Object
+    this.configParser.put("exampleValue02","23"); //Puts Key And Value Into ConfigParser Object
     
-    this.configParser.write();
-    this.configParser.read();
+    this.configParser.write(); //Saves Keys And Values Into Config File
+    this.configParser.read(); //Gets Keys And Values From Config File
   }
 ```
 
