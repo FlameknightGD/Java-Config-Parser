@@ -1,7 +1,7 @@
 # Java-ConfigParser
 This is a config parser that I created in Java. It is an extension of the HashMap class.
 
-##How To Use
+## How To Use
 The Config Parser has a couple of methods:
 
 - All of the default methods of the HashMap class
