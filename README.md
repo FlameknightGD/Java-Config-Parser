@@ -1,5 +1,5 @@
 # Java-ConfigParser
-This is a config parser that I created in Java. It is an extension of the HashMap class.
+A simple tool that consists of one Java class that you can use to easily write config files for you project. It is an extension of the HashMap class and you just need to put the java file into your project and you're ready to go.
 
 ## How To Use
 The Config Parser has a couple of methods:
