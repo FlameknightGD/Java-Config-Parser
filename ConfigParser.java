@@ -15,7 +15,7 @@ public class ConfigParser extends HashMap<String, String> {
 	private static final long serialVersionUID = 5979389544685269824L;
 
 	/**
-	 * Serial Version UID that is used as an identifier for the ConfigParser class
+	 * The file that is going to be used by the ConfigParser to save and read information
 	 */
 	File configFile;
 
