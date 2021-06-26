@@ -7,7 +7,7 @@ There are two ways to use this library:
 1. You can put the java file directly into your project and use it from there
 2. You can install the jar file into your IDE as a library, I can't give you an exact guide on this, as installing liberaries differs depending on which IDE you use.
 
-After installing, you need to import the class jcplib.ConfigParser and you're ready to go.
+After installing, you need to import the class com.flameknightgd.jcplib.ConfigParser and you're ready to go.
 
 The class has a couple of methods:
 
@@ -19,7 +19,7 @@ The class has a couple of methods:
 Here is an example of how to use this class:
 
 ```java
-import jcplib.ConfigParser;
+import com.flameknightgd.jcplib.ConfigParser;
 
 public class ConfigParserTest {
   static ConfigParser cp;
