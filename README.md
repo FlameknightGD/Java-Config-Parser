@@ -1,8 +1,15 @@
-# Java-ConfigParser
-A simple tool that consists of just one Java class, which you can use to easily write and read configuration files for you project. It is an extension of the HashMap class and just needs to be put into your project and it will be ready to use.
+# jCPLib
+A simple Java library that consists of just the Java class ConfigParser.java, which you can use to easily write and read configuration files for you project. It is an extension of the HashMap class and just needs to be put into your project and it will be ready to use.
 
 ## How To Use
-The Config Parser has a couple of methods:
+There are two ways to use this library:
+
+1. You can put the java file directly into your project and use it from there
+2. You can install the jar file into your IDE as a library, I can't give you an exact guide on this, as installing liberaries differs depending on which IDE you use.
+
+After installing, you need to import the class jcplib.ConfigParser and you're ready to go.
+
+The class has a couple of methods:
 
 - All of the default methods of the HashMap class
 - write(): Saves the current keys and values of the ConfigParser object into the config file
@@ -12,25 +19,23 @@ The Config Parser has a couple of methods:
 Here is an example of how to use this class:
 
 ```java
+import jcplib.ConfigParser;
+
 public class ConfigParserTest {
-  File configFile;
-  ConfigParser configParser;
+  static ConfigParser cp;
 
   public static void main(String[] args) {
-    this.configFile = new File("config/config.cfg"); //Initialize Config File
-    this.configParser = new ConfigParser(this.configFile); //Initialize Config Parser
+    cp = new ConfigParser("config/settings.cfg", '#'); //Initialize Config Parser
     
-    this.configParser.put("exampleValue01","14"); //Puts Key And Value Into ConfigParser Object
-    this.configParser.put("exampleValue02","23"); //Puts Key And Value Into ConfigParser Object
+    cp.put("exampleKey","exampleValue"); //Puts a key and the corresponding value into the ConfigParser object
     
-    this.configParser.write(); //Saves Keys And Values Into Config File
-    this.configParser.read(); //Gets Keys And Values From Config File
+    cp.write(); //Saves Keys And Values Into Config File
+    cp.read(); //Gets Keys And Values From Config File
   }
 ```
 
 In the config file it is going to look like this:
 
 ```
-exampleValue01=14
-exampleValue02=23
+exampleKey#exampleValue
 ```
