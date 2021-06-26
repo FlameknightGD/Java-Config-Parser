@@ -81,7 +81,9 @@ public class ConfigParser extends HashMap<String, String> {
 	 * <p>
 	 * When called, the method {@link #write()} will start a for each loop to write
 	 * each key and its corresponding value into an external file, using a
-	 * StringBuffer and the global variable '{@link #configFile}'.
+	 * StringBuffer and the global variable '{@link #configFile}'. It will also
+	 * create a new file if there doesn't exist any file with the selected file
+	 * path.
 	 * 
 	 * @throws IOException if the file can't be found
 	 * @since v1.0.0
