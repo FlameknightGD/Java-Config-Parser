@@ -1,4 +1,4 @@
-package configParser;
+package jcplib;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,9 +11,10 @@ import java.util.HashMap;
  * and read configuration files of your Java project. You can find my other
  * projects at github.com/FlameknightGD.
  * 
- * @version v1.0.1
+ * @version v1.1.0
  * @author FlameknightGD
  * @see java.util.HashMap
+ * @since v1.0.0
  */
 
 public class ConfigParser extends HashMap<String, String> {
@@ -34,28 +35,42 @@ public class ConfigParser extends HashMap<String, String> {
 	 */
 	File configFile;
 
+	/**
+	 * The character that is going to be used to seperate key and value in the
+	 * configuration file.
+	 *
+	 * @since v1.1.0
+	 */
+	char seperator;
+
 	// Constructors
 
 	/**
-	 * Constructer for the ConfigParser class using the actual file.
-	 * 
-	 * @param configFile The file that is going to be used by the ConfigParser to
-	 *                   save and read information
-	 * @since v1.0.0
-	 */
-	public ConfigParser(File configFile) {
-		setConfigFile(configFile);
-	}
-
-	/**
-	 * Constructer for the ConfigParser class using the file path.
+	 * Constructer for the ConfigParser class using a String as the file path
 	 * 
 	 * @param filePath The path of the file that is going to be used by the
 	 *                 ConfigParser to save and read information.
+	 * @throws IOException
 	 * @since v1.0.0
 	 */
-	public ConfigParser(String filePath) {
-		setConfigFile(new File(filePath));
+	public ConfigParser(String filePath) throws IOException {
+		setFilePath(filePath);
+		setSeperator('=');
+	}
+
+	/**
+	 * Constructer for the ConfigParser class using a String as the file path
+	 * 
+	 * @param filePath  The path of the file that is going to be used by the
+	 *                  ConfigParser to save and read information.
+	 * @param seperator The character that is going to be used to seperate key and
+	 *                  value in the configuration file.
+	 * @throws IOException
+	 * @since v1.1.0
+	 */
+	public ConfigParser(String filePath, char seperator) throws IOException {
+		setFilePath(filePath);
+		setSeperator(seperator);
 	}
 
 	// Main Methods
@@ -70,13 +85,16 @@ public class ConfigParser extends HashMap<String, String> {
 	 * 
 	 * @throws IOException if the file can't be found
 	 * @since v1.0.0
+	 * @see java.io.File
 	 * @see java.lang.StringBuffer
 	 * @see java.nio.file.Files
 	 */
 	public void write() throws IOException {
+		if (configFile.createNewFile()) {
+		}
 		StringBuffer fileContent = new StringBuffer();
 		for (String key : this.keySet()) {
-			fileContent.append(key + "=" + this.get(key) + "\n");
+			fileContent.append(key + this.seperator + this.get(key) + "\n");
 		}
 		Files.write(configFile.toPath(), fileContent.toString().getBytes());
 	}
@@ -101,7 +119,7 @@ public class ConfigParser extends HashMap<String, String> {
 		this.clear();
 		String fileContent = new String(Files.readAllBytes(configFile.toPath()), StandardCharsets.UTF_8);
 		for (String line : fileContent.split("\n")) {
-			String[] splitLine = line.split("=");
+			String[] splitLine = line.split(String.valueOf(this.seperator));
 			this.put(splitLine[0], splitLine[1]);
 		}
 	}
@@ -109,37 +127,41 @@ public class ConfigParser extends HashMap<String, String> {
 	// Getters
 
 	/**
-	 * Gets the currently selected configuration file.
+	 * Returns the currently selected configuration file.
 	 * 
-	 * @return File that is currently selected by the ConfigParser
+	 * @return File that is currently selected by the ConfigParser object
 	 * @since v1.0.0
+	 * @see java.io.file
 	 */
 	public File getConfigFile() {
 		return this.configFile;
 	}
 
 	/**
-	 * Gets the path of the currently selected configuration file.
+	 * Returns the path of the currently selected configuration file.
 	 * 
-	 * @return File that is currently selected by the ConfigParser
+	 * @return Path of the file that is currently selected by the ConfigParser
+	 *         object
 	 * @since v1.0.0
+	 * @see java.io.file
 	 */
 	public String getFilePath() {
 		return this.configFile.getPath();
 	}
 
-	// Setters
-
 	/**
-	 * Sets the file that is being used by the ConfigParser object.
+	 * Returns the character that is used to seperate key and value in the
+	 * configuration file.
 	 * 
-	 * @param configFile The file that is going to be used by the ConfigParser to
-	 *                   save and read information
-	 * @since v1.0.0
+	 * @return Path of the file that is currently selected by the ConfigParser
+	 *         object
+	 * @since v1.1.0
 	 */
-	public void setConfigFile(File configFile) {
-		this.configFile = configFile;
+	public char getSeperator() {
+		return this.seperator;
 	}
+
+	// Setters
 
 	/**
 	 * Sets the path of the file that is being used by the ConfigParser object.
@@ -147,8 +169,22 @@ public class ConfigParser extends HashMap<String, String> {
 	 * @param filePath The path of the file that is going to be used by the
 	 *                 ConfigParser to save and read information
 	 * @since v1.0.1
+	 * @see java.io.file
 	 */
 	public void setFilePath(String filePath) {
 		this.configFile = new File(filePath);
+	}
+
+	/**
+	 * Sets the character that is used to seperate key and value in the
+	 * configuration file.
+	 * 
+	 * @param seperator The character that is going to be used to seperate key and
+	 *                  value in the configuration file. (It's a very bad idea to
+	 *                  choose a letter as the seperator)
+	 * @since v1.1.0
+	 */
+	public void setSeperator(char seperator) {
+		this.seperator = seperator;
 	}
 }
