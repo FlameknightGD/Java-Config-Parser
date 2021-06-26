@@ -1,4 +1,4 @@
-package jcplib;
+package com.flameknightgd.jcplib;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,10 +11,10 @@ import java.util.HashMap;
  * and read configuration files of your Java project. You can find my other
  * projects at github.com/FlameknightGD.
  * 
+ * @since v1.0.0
  * @version v1.1.0
  * @author FlameknightGD
  * @see java.util.HashMap
- * @since v1.0.0
  */
 
 public class ConfigParser extends HashMap<String, String> {
