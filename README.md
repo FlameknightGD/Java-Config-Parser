@@ -27,7 +27,7 @@ public class ConfigParserTest {
   public static void main(String[] args) {
     cp = new ConfigParser("config/settings.cfg", '#'); //Initialize Config Parser
     
-    cp.put("exampleKey","exampleValue"); //Puts a key and its corresponding value into the ConfigParser object
+    cp.put("exampleKey","exampleValue"); //Puts a key and its value into the ConfigParser object
     
     cp.write(); //Saves Keys And Values Into Config File
     cp.read(); //Gets Keys And Values From Config File
