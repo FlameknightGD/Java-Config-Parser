@@ -3,7 +3,7 @@ A simple Java class, based on the HashMap class, that can be used to easily writ
 
 ## How To Use
 1. Add the ConfigParser.java file to your project
-2. Change the "com.flameknightgd.examplePackage;" within the file to whatever the name of the package is, where the class is located
+2. Change the "com.flameknightgd.examplePackage;" within the file to whatever the name of the package, where the class is located, is
 3. Import it into the class you want to use it in
 
 The methods, included in this class, are as follows:
