@@ -1,4 +1,4 @@
-package com.flameknightgd.jcplib;
+package com.flameknightgd.examplePackage;
 
 import java.io.File;
 import java.io.IOException;
