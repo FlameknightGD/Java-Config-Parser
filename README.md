@@ -16,7 +16,7 @@ The methods, included in this class, are as follows:
 Here is an example of how to use this class:
 
 ```java
-import com.flameknightgd.jcplib.ConfigParser;
+import com.flameknightgd.examplePackage;
 
 public class ConfigParserTest {
   static ConfigParser cp;
