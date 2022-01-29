@@ -1,19 +1,15 @@
-# jCPLib
-A simple Java library that consists of just the Java class ConfigParser.java, which you can use to easily write and read configuration files for you project. It is an extension of the HashMap class and just needs to be put into your project and it will be ready to use.
+# Java-Config-Parser
+A simple Java class, based on the HashMap class, that can be used to easily write and read configuration files for you projects. In order to use it, just put the file into your project and you're ready to go!
 
 ## How To Use
-There are two ways to use this library:
+1. Add the ConfigParser.java file to your project
+2. Import it into the class you want to use it in
 
-1. You can put the java file directly into your project and use it from there
-2. You can install the jar file into your IDE as a library, I can't give you an exact guide on this, as installing liberaries differs depending on which IDE you use.
-
-After installing, you need to import the class com.flameknightgd.jcplib.ConfigParser and you're ready to go.
-
-The class has a couple of methods:
+The methods, included in this class, are as follows:
 
 - All of the default methods of the HashMap class
-- write(): Saves the current keys and values of the ConfigParser object into the config file
-- read(): Gets the keys and values of the config file into the ConfigParser object
+- write(): Writes down the keys and the values, currently held by the ConfigParser object into your config file
+- read(): Reads the keys and values of your config file and adds them into the ConfigParser object
 - Getter and Setter methods
 
 Here is an example of how to use this class:
@@ -27,14 +23,14 @@ public class ConfigParserTest {
   public static void main(String[] args) {
     cp = new ConfigParser("config/settings.cfg", '#'); //Initialize Config Parser
     
-    cp.put("exampleKey","exampleValue"); //Puts a key and its value into the ConfigParser object
+    cp.put("exampleKey","exampleValue"); //Puts a key and a corresponding value into the ConfigParser object
     
     cp.write(); //Saves Keys And Values Into Config File
     cp.read(); //Gets Keys And Values From Config File
   }
 ```
 
-In the config file it is going to look like this:
+This is how it would look like in the config file:
 
 ```
 exampleKey#exampleValue
